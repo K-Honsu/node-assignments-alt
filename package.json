@@ -1,0 +1,11 @@
+{
+  "name": "module-assignment",
+  "version": "1.0.0",
+  "description": "A node repository for learning inbuilt modules",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Oluwaferanmi Adeyemi",
+  "license": "ISC"
+}
