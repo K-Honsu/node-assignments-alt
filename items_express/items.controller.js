@@ -1,6 +1,16 @@
 const items = [];
 
 const GetItems = (req, res) => {
+    const query = req.query
+
+    let itemsArrayDuplicate = items;
+    if (query.size) {
+        itemsArrayDuplicate = itemsArrayDuplicate.filter(itm => itm.size.includes(query.size))
+    }
+
+    if (query.limit) {
+        itemsArrayDuplicate = itemsArrayDuplicate.slice(0, req.limit - 1)
+    }
 
 
     res.status(200).json({
