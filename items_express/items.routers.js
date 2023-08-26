@@ -1,14 +1,17 @@
 const express = require('express');
+const globalMiddlewares = require('../middlewares/global.middlewares');
 const middleware = require('./items.middleware')
 const controller = require('./items.controller')
 
 const router = express.Router();
 
+router.use(globalMiddlewares.apiKeyAuthentication)
+
 // GET items
 router.get('/', controller.GetItems)
 
 // POST Items
-router.post('/', middleware.CheckSizes, controller.CreateItems)
+router.post('/', globalMiddlewares.checkAdmin, middleware.CheckSizes, controller.CreateItems)
 
 // GET one /item/134
 router.get('/:id', controller.getOneItem)
